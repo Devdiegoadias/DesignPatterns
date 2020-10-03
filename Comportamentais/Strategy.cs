@@ -3,20 +3,52 @@ using System.Collections.Generic;
 
 namespace DesignPatterns.Comportamentais.Strategy
 {
-
-    public class Pagamento
+    interface IEstrategiaImposto
     {
-        private IStrategy _strategy;
+        string Nome { get; }
 
-        public Pagamento()
-        { }
+        double AplicarImposto(double valor);
+    }
 
-        public Pagamento(IStrategy strategy)
+
+   class PessoaFisica : IEstrategiaImposto
+    {
+        public string Nome => throw new NotImplementedException();
+
+        public double AplicarImposto(double data)
         {
-            this._strategy = strategy;
+            Console.WriteLine("Para Pessoa Física");
+
+            Console.WriteLine(data * 0.32);
+
+            return data * 0.32; //Fictício
+        }
+    }
+
+    class PessoaJuridica : IEstrategiaImposto
+    {
+        public string Nome => nameof(PessoaJuridica);
+
+        public double AplicarImposto(double data)
+        {
+            Console.WriteLine("Para Pessoa Jurídica");
+
+            Console.WriteLine(data * 0.22);
+
+            return data * 0.22; //Fictício
+        }
+    }
+
+    class PagamentoContexto
+    {
+       IEstrategiaImposto _strategy;
+              
+        public PagamentoContexto(IEstrategiaImposto strategyImposto)
+        {
+            this._strategy = strategyImposto;
         }
 
-        public void SetImposto(IStrategy strategy)
+        public void SetEstrategiaImposto(IEstrategiaImposto strategy)
         {
             this._strategy = strategy;
         }
@@ -25,36 +57,10 @@ namespace DesignPatterns.Comportamentais.Strategy
         {
             Console.WriteLine("Aplicando imposto...");
 
-            return (this._strategy.AplicandoDesconto(salario));
+            return (this._strategy.AplicarImposto(salario));
         }
     }
 
-    public interface IStrategy
-    {
-        double AplicandoDesconto(double data);
-    }
 
-    public class PessoaFisica : IStrategy
-    {
-        public double AplicandoDesconto(double data)
-        {
-            Console.WriteLine("Para Pessoa Física");
 
-            Console.WriteLine(data * 73 / 100);
-
-            return data * 73 / 100; //Fictício
-        }
-    }
-
-    public class PessoaJuridica : IStrategy
-    {
-        public double AplicandoDesconto(double data)
-        {
-            Console.WriteLine("Para Pessoa Jurídica");
-
-            Console.WriteLine(data * 80 / 100);
-
-            return data * 80 / 100; //Fictício
-        }
-    }
 }

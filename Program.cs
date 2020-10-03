@@ -10,21 +10,21 @@ namespace DesignPatterns
 
         static void Main(string[] args)
         {
-            IStrategy iPessoa;
+            IEstrategiaImposto iTipoPessoaStrategia;
+            
+            iTipoPessoaStrategia = new PessoaFisica();
 
-            Pagamento pagamento = new Pagamento();
+            PagamentoContexto pagamento = new PagamentoContexto(iTipoPessoaStrategia);
             Console.WriteLine("Imposto: Estratégia para Pessoa Física");
 
-            iPessoa = new PessoaFisica();
-
-            pagamento.SetImposto(iPessoa);
             pagamento.AplicarImposto(10000);
 
             Console.WriteLine("Imposto: Estratégia para Pessoa Jurídica.");
 
-            iPessoa = new PessoaJuridica();
+            iTipoPessoaStrategia = new PessoaJuridica();
 
-            pagamento.SetImposto(iPessoa);
+            pagamento.SetEstrategiaImposto(iTipoPessoaStrategia);
+            
             pagamento.AplicarImposto(10000);
 
             Console.ReadLine();

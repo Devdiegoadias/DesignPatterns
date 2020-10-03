@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="DesignPatterns.Comportamentais.Strategy.Pagamento">
-    <Position X="5.75" Y="2.25" Width="2" />
-    <AssociationLine Name="_strategy" Type="DesignPatterns.Comportamentais.Strategy.IStrategy" FixedFromPoint="true">
+  <Class Name="DesignPatterns.Comportamentais.Strategy.PagamentoContexto">
+    <Position X="4" Y="2" Width="2" />
+    <AssociationLine Name="_strategy" Type="DesignPatterns.Comportamentais.Strategy.IEstrategiaImposto" FixedToPoint="true">
       <Path>
-        <Point X="6.75" Y="2.25" />
-        <Point X="6.75" Y="1.603" />
+        <Point X="6" Y="2.75" />
+        <Point X="7" Y="2.75" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAACAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Comportamentais\Strategy.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -17,25 +17,25 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DesignPatterns.Comportamentais.Strategy.PessoaFisica" BaseTypeListCollapsed="true">
-    <Position X="8.5" Y="2.5" Width="2" />
+    <Position X="9.25" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAAA=</HashCode>
       <FileName>Comportamentais\Strategy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Orientation="Left" Position="0.466" />
   </Class>
   <Class Name="DesignPatterns.Comportamentais.Strategy.PessoaJuridica" BaseTypeListCollapsed="true">
-    <Position X="3" Y="2.5" Width="2" />
+    <Position X="4.25" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAAA=</HashCode>
       <FileName>Comportamentais\Strategy.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Orientation="Right" Position="0.465" />
+    <Lollipop Orientation="Right" Position="0.455" />
   </Class>
-  <Interface Name="DesignPatterns.Comportamentais.Strategy.IStrategy">
-    <Position X="6" Y="0.5" Width="1.5" />
+  <Interface Name="DesignPatterns.Comportamentais.Strategy.IEstrategiaImposto">
+    <Position X="7" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Comportamentais\Strategy.cs</FileName>
     </TypeIdentifier>
   </Interface>
