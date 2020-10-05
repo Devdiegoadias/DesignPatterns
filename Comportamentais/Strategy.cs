@@ -13,15 +13,15 @@ namespace DesignPatterns.Comportamentais.Strategy
 
    class PessoaFisica : IEstrategiaImposto
     {
-        public string Nome => throw new NotImplementedException();
+        public string Nome => nameof(PessoaFisica);
 
-        public double AplicarImposto(double data)
+        public double AplicarImposto(double valor)
         {
-            Console.WriteLine("Para Pessoa Física");
+            Console.WriteLine("Para " + Nome);
 
-            Console.WriteLine(data * 0.32);
+            Console.WriteLine(valor * 0.32);
 
-            return data * 0.32; //Fictício
+            return valor * 0.32; //Fictício
         }
     }
 
@@ -29,13 +29,13 @@ namespace DesignPatterns.Comportamentais.Strategy
     {
         public string Nome => nameof(PessoaJuridica);
 
-        public double AplicarImposto(double data)
+        public double AplicarImposto(double valor)
         {
-            Console.WriteLine("Para Pessoa Jurídica");
+            Console.WriteLine("Para " + Nome);
 
-            Console.WriteLine(data * 0.22);
+            Console.WriteLine(valor * 0.22);
 
-            return data * 0.22; //Fictício
+            return valor * 0.22; //Fictício
         }
     }
 
