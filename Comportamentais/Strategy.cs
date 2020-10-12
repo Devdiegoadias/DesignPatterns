@@ -48,19 +48,16 @@ namespace DesignPatterns.Comportamentais.Strategy
             this._strategy = strategyImposto;
         }
 
-        public void SetEstrategiaImposto(IEstrategiaImposto strategy)
-        {
-            this._strategy = strategy;
-        }
-
         public double AplicarImposto(Double salario)
         {
             Console.WriteLine("Aplicando imposto...");
 
             return (this._strategy.AplicarImposto(salario));
         }
+
+        public void SetEstrategiaImposto(IEstrategiaImposto strategy)
+        {
+            this._strategy = strategy;
+        }
     }
-
-
-
 }
