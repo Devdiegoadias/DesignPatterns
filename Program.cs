@@ -35,21 +35,20 @@ namespace DesignPatterns
 
             /// PADRÃO CHAIN OF RESPONSABILITY
             /// 
-            List<TicketAtendimento> documents = new List<TicketAtendimento>()
+            List<TicketAtendimento> chamados = new List<TicketAtendimento>()
                 {
                     new TicketAtendimento() { Id = 1, Conteudo = new string('*', 500)},
                     new TicketAtendimento() { Id = 2, Conteudo = new string('*', 850)},
                     new TicketAtendimento() { Id = 3, Conteudo = new string('*', 1500) }
                 };
 
-            IAtendente vAnalista = new Analista(new EspecialistaTecnico());
+            IAtendente vAtendente = new Analista(new EspecialistaTecnico(new GerenteArea()));
             
-            documents.ForEach(x =>
+            chamados.ForEach(x =>
             {
-                var resultado = vAnalista.Resultado(x);
-                Console.WriteLine(resultado.Aprovado ? "Ticket {0} Aceito por {1}"
-                    : "Ticket {0} Não aceito Por {1}",
-                                  x.Id, resultado.Revisor);
+                var resultado = vAtendente.Resultado(x);
+                Console.WriteLine(resultado.Resolvido ? "Ticket {0} Aceito por {1}"
+                    : "Ticket {0} Não aceito Por {1}",x.Id, resultado.Atendente);
             });
 
         }
