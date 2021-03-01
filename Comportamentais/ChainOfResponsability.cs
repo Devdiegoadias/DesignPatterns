@@ -12,8 +12,8 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
 
     public class ResultadoDaAnalise
     {
-        public bool Aprovado { get; set; }
-        public string Revisor { get; set; }
+        public bool Resolvido { get; set; }
+        public string Atendente { get; set; }
     }
 
     public interface IAtendente
@@ -33,15 +33,15 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
         {
             ResultadoDaAnalise resultado = new ResultadoDaAnalise()
             {
-                Revisor = "TicketAtendimento Analista Nível 1"
+                Atendente = "TicketAtendimento Analista Nível 1"
             };
 
             if (!string.IsNullOrWhiteSpace(document.Conteudo))
             {
                 if (document.Conteudo.Length > 777)
                     return Proximo.Resultado(document);
-                if (document.Conteudo.Length <= 777)
-                    resultado.Aprovado = true;
+                else
+                    resultado.Resolvido = true;
             }
             return resultado;
         }
@@ -53,9 +53,9 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
         {
             ResultadoDaAnalise resultado = new ResultadoDaAnalise()
             {
-                Revisor = "TicketAtendimento Especialista Técnico Nível 2"
+                Atendente = "TicketAtendimento Especialista Técnico Nível 2"
             };
-            resultado.Aprovado = !string.IsNullOrWhiteSpace(document.Conteudo) && document.Conteudo.Length > 1000;
+            resultado.Resolvido = !string.IsNullOrWhiteSpace(document.Conteudo) && document.Conteudo.Length > 1000;
             return resultado;
         }
     }
