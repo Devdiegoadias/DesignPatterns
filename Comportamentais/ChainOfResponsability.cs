@@ -33,7 +33,7 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
         {
             ResultadoDaAnalise resultado = new ResultadoDaAnalise()
             {
-                Atendente = "TicketAtendimento Analista Nível 1"
+                Atendente = "TicketAtendimento - Analista - Nível 1"
             };
 
             if (!string.IsNullOrWhiteSpace(document.Conteudo))
@@ -49,11 +49,37 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
 
     public class EspecialistaTecnico : IAtendente
     {
+        public IAtendente Proximo { get; private set; }
+
+        public EspecialistaTecnico(IAtendente proximo)
+        {
+            Proximo = proximo;
+        }
         public ResultadoDaAnalise Resultado(TicketAtendimento document)
         {
             ResultadoDaAnalise resultado = new ResultadoDaAnalise()
             {
-                Atendente = "TicketAtendimento Especialista Técnico Nível 2"
+                Atendente = "TicketAtendimento - Especialista Técnico - Nível 2"
+            };
+
+            if (!string.IsNullOrWhiteSpace(document.Conteudo))
+            {
+                if (document.Conteudo.Length > 777)
+                    return Proximo.Resultado(document);
+                else
+                    resultado.Resolvido = true;
+            }
+            return resultado;
+        }
+    }
+
+    public class GerenteArea : IAtendente
+    {
+        public ResultadoDaAnalise Resultado(TicketAtendimento document)
+        {
+            ResultadoDaAnalise resultado = new ResultadoDaAnalise()
+            {
+                Atendente = "TicketAtendimento - Gerente de Área -  Nível 3"
             };
             resultado.Resolvido = !string.IsNullOrWhiteSpace(document.Conteudo) && document.Conteudo.Length > 1000;
             return resultado;
