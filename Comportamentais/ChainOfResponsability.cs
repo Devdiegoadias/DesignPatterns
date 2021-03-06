@@ -38,7 +38,7 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
 
             if (!string.IsNullOrWhiteSpace(document.Conteudo))
             {
-                if (document.Conteudo.Length > 777)
+                if (document.Conteudo.Length >= 500)
                     return Proximo.Resultado(document);
                 else
                     resultado.Resolvido = true;
@@ -64,7 +64,7 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
 
             if (!string.IsNullOrWhiteSpace(document.Conteudo))
             {
-                if (document.Conteudo.Length > 777)
+                if (document.Conteudo.Length >= 1000)
                     return Proximo.Resultado(document);
                 else
                     resultado.Resolvido = true;
@@ -81,7 +81,7 @@ namespace DesignPatterns.Comportamentais.ChainOfResponsability
             {
                 Atendente = "TicketAtendimento - Gerente de Área -  Nível 3"
             };
-            resultado.Resolvido = !string.IsNullOrWhiteSpace(document.Conteudo) && document.Conteudo.Length > 1000;
+            resultado.Resolvido = !string.IsNullOrWhiteSpace(document.Conteudo) && document.Conteudo.Length > 1500;
             return resultado;
         }
     }

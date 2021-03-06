@@ -39,7 +39,7 @@ namespace DesignPatterns
                 {
                     new TicketAtendimento() { Id = 1, Conteudo = new string('*', 500)},
                     new TicketAtendimento() { Id = 2, Conteudo = new string('*', 850)},
-                    new TicketAtendimento() { Id = 3, Conteudo = new string('*', 1500) }
+                    new TicketAtendimento() { Id = 3, Conteudo = new string('*', 1500)}
                 };
 
             IAtendente vAtendente = new Analista(new EspecialistaTecnico(new GerenteArea()));
